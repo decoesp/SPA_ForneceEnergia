@@ -52,18 +52,6 @@ npm run start
 ```
 A aplicação React estará disponível em http://localhost:5173.
 
-
-## Docker:
-
-Certifique-se de ter o Docker instalado.
-
-Execute:
-
-```sh
-docker-compose up
-```
-Isso iniciará os containers para o backend e frontend.
-
 Acesso à Aplicação:
 
 Acesse a aplicação em http://localhost:5173.
