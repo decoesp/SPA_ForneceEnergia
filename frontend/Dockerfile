@@ -1,22 +1,19 @@
 # Use a imagem Node.js
-FROM node:14
+FROM node:16
 
 # Crie e defina o diretório de trabalho
-WORKDIR /usr/src/app
+WORKDIR /frontend
 
 # Copie os arquivos de origem para o diretório de trabalho
 COPY ./frontend/package.json ./
-COPY ./frontend/public ./public
+COPY ./frontend/package-lock.json ./
 COPY ./frontend/src ./src
 
 # Instale as dependências
 RUN npm install
 
-# Compila o código TypeScript
-RUN npm run build
-
 # Expõe a porta necessária
 EXPOSE 5173
 
 # Comando para iniciar o aplicativo
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
