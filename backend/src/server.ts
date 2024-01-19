@@ -28,23 +28,19 @@ app.get('/', (req, res) => {
   res.send('Welcome to the Suppliers API!');
 });
 
-// Criação e inicialização da instância do ApolloServer
-export async function startServer(): Promise<ApolloServer<ExpressContext>> {
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-  });
 
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
+
+
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, async () => {
   await server.start();
-  server.applyMiddleware({ app } as any);
+server.applyMiddleware({ app } as any);
+  console.log(`GraphQL server running at http://localhost:${PORT}${server.graphqlPath}`);
+});
 
-  const PORT = process.env.PORT || 4000;
-  app.listen(PORT, () => {
-    console.log(`GraphQL server running at http://localhost:${PORT}${server.graphqlPath}`);
-  });
-
-  return server;
-}
-
-// Inicia o servidor
-startServer();
+module.exports = app
