@@ -6,7 +6,7 @@ import App from './App';
 import './index.css';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: 'https://spa-fornece-energia-g45t.vercel.app/graphql',
   cache: new InMemoryCache(),
 });
 

@@ -34,13 +34,15 @@ const server = new ApolloServer({
   resolvers,
 });
 
-
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*")
+}) 
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, async () => {
-  await server.start();
+await server.start();
 server.applyMiddleware({ app } as any);
-  console.log(`GraphQL server running at http://localhost:${PORT}${server.graphqlPath}`);
+console.log(`GraphQL server running at http://localhost:${PORT}${server.graphqlPath}`);
 });
 
 module.exports = app
