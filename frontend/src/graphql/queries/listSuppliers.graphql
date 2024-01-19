@@ -1,0 +1,11 @@
+query getSuppliers($consumMonth: Int!) {
+  getSuppliers(consumMonth: $consumMonth) {
+    name
+    state
+    costPerKwh
+    minLimitKwh
+    numCustomers
+    averageRating
+    logo
+  }
+}
